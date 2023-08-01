@@ -1,5 +1,10 @@
 @extends('layouts.main')
 @section('content')
+    <style>
+        a {
+            text-decoration: none
+        }
+    </style>
     <section class="section posts-entry posts-entry-sm bg-light">
         <div class="container">
             <div class="row mb-4">

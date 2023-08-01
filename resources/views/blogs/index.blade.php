@@ -33,7 +33,7 @@
                 <div class="col-sm-6">
                     <h2 class="posts-entry-title">Technology</h2>
                 </div>
-                <div class="col-sm-6 text-sm-end"><a href="{{ route('category', 1) }}" class="read-more">Voir tout</a></div>
+                <div class="col-sm-6 text-sm-end"><a href="{{ route('category', 1) }}" class="read-more">All</a></div>
             </div>
             <div class="row g-3">
                 <div class="col-md-9 order-md-2">
@@ -50,7 +50,7 @@
                                     <h2><a href="{{ route('show', $blog->id) }}">{{ $blog->title }}</a></h2>
                                     <p>{!! Str::limit($blog->description, 60) !!}</p>
                                     <p><a href="{{ route('show', $blog->id) }}"
-                                            class="btn btn-sm btn-outline-primary">Continuez</a></p>
+                                            class="btn btn-sm btn-outline-primary">Continue</a></p>
                                 </div>
                             </div>
                         @endforeach
@@ -75,7 +75,7 @@
                                 {{ \Carbon\Carbon::parse($blog->created_at)->format('M. jS, Y') }}</span>
                             <h2><a href="{{ route('show', $blog->id) }}">{{ $blog->title }}</a></h2>
                             <p>{!! Str::limit($blog->description, 60) !!}</p>
-                            <p><a href="{{ route('show', $blog->id) }}" class="read-more">Continuez</a></p>
+                            <p><a href="{{ route('show', $blog->id) }}" class="read-more">Continue</a></p>
                         </div>
                     </div>
                 @endforeach
@@ -88,9 +88,45 @@
                 <div class="col-sm-6">
                     <h2 class="posts-entry-title">Culture</h2>
                 </div>
-                <div class="col-sm-6 text-sm-end"><a href="{{ route('category', 2) }}" class="read-more">Voir tout</a>
+                <div class="col-sm-6 text-sm-end"><a href="{{ route('category', 2) }}" class="read-more">All</a>
+                </div>
+                <div class="row g-3">
+                    <div class="col-md-9 order-md-2">
+                        <div class="row g-3">
+                            @foreach ($cultureBlog as $blog)
+                                <div class="col-md-6">
+                                    <div class="blog-entry">
+                                        <a href="{{ route('show', $blog->id) }}" class="img-link">
+                                            <img src="{{ asset('blogs/images/' . $blog->image1) }}" alt="Image"
+                                                class="img-fluid">
+                                        </a>
+                                        <span class="date">
+                                            {{ \Carbon\Carbon::parse($blog->created_at)->format('M. jS, Y') }}</span>
+                                        <h2><a href="{{ route('show', $blog->id) }}">{{ $blog->title }}</a></h2>
+                                        <p>{!! Str::limit($blog->description, 60) !!}</p>
+                                        <p><a href="{{ route('show', $blog->id) }}"
+                                                class="btn btn-sm btn-outline-primary">Continue</a></p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-flex justify-content-center align-items-center">
+                        <h1>ADS</h1>
+                    </div>
                 </div>
             </div>
+    </section>
+    {{-- <section class="section posts-entry">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-sm-6">
+                    <h2 class="posts-entry-title">Culture</h2>
+                </div>
+                <div class="col-sm-6 text-sm-end"><a href="{{ route('category', 2) }}" class="read-more">All</a>
+                </div>
+            </div>
+
             <div class="row g-3">
                 @foreach ($cultureBlog as $blog)
                     <div class="col-md-9">
@@ -106,7 +142,7 @@
                                     <h2><a href="{{ route('show', $blog->id) }}">{{ $blog->title }}</a></h2>
                                     <p>{!! Str::limit($blog->description, 60) !!}</p>
                                     <p><a href="{{ route('show', $blog->id) }}"
-                                            class="btn btn-sm btn-outline-primary">Continuez</a></p>
+                                            class="btn btn-sm btn-outline-primary">Continue</a></p>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +153,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <section class="section">
         <div class="container">
             <div class="row">
@@ -136,7 +172,7 @@
                                         {{ \Carbon\Carbon::parse($blog->created_at)->format('M. jS, Y') }}</span>
                                 </div>
                                 <p>{!! Str::limit($blog->description, 60) !!}</p>
-                                <p><a href="{{ route('show', $blog->id) }}" class="read-more">Continuez</a></p>
+                                <p><a href="{{ route('show', $blog->id) }}" class="read-more">Continue</a></p>
                             </div>
                         </div>
                     </div>

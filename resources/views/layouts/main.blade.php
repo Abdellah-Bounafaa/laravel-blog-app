@@ -164,8 +164,10 @@
                 <div class="col-lg-4">
                     <div class="widget">
                         <h3 class="mb-4">About</h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                            there live the blind texts.</p>
+                        <p>
+                            Discover my personal blog website, a captivating digital haven where I share my thoughts,
+                            experiences, and passions with the world. Through engaging storytelling and thoughtful
+                            reflections, I invite readers to embark on a journey of self-discovery and inspiration.</p>
                     </div> <!-- /.widget -->
                     <div class="widget">
                         <h3>Social</h3>

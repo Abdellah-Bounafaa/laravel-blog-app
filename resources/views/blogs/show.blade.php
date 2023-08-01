@@ -13,7 +13,7 @@
                     <div class="post-entry text-center">
                         <h1 class="mb-4">{{ $blog->title }}</h1>
                         <div class="post-meta align-items-center text-center">
-                            <span class="d-inline-block mt-1">Par <b>Abdellah BOUNAFAA</b></span>
+                            <span class="d-inline-block mt-1">By <b>Abdellah BOUNAFAA</b></span>
                             <span>&nbsp;-&nbsp;
                                 {{ \Carbon\Carbon::parse($blog->created_at)->format('M. jS, Y') }}
                             </span>
@@ -92,10 +92,10 @@
                             <div class="bio-body">
                                 <h2>Abdellah Bounafaa</h2>
                                 <p class="mb-4"><i>
-                                        Je suis un développeur Full-Stack compétent avec une expertise dans les technologies
-                                        front-end et back-end. J'apprécie la création d'applications web innovantes et
-                                        l'optimisation des expériences utilisateur grâce à l'intégration transparente du
-                                        design et des fonctionnalités.</i></p>
+
+                                        I am a skilled Full-Stack developer with expertise in both front-end and back-end
+                                        technologies. I enjoy creating innovative web applications and optimizing user
+                                        experiences through seamless integration of design and functionality.</i></p>
                                 <p class="social">
                                     <a href="https://github.com/Abdellah-Bounafaa" class="p-2"><span
                                             class="fab fa-github"></span></a>
@@ -108,7 +108,7 @@
                     </div>
                     <!-- END sidebar-box -->
                     <div class="sidebar-box p-2">
-                        <h3 class="heading">Postes populaires</h3>
+                        <h3 class="heading">Popular Blogs</h3>
                         <div class="post-entry-sidebar">
                             <ul>
                                 @foreach ($blogs as $popularBlog)
@@ -142,7 +142,7 @@
     <section class="section posts-entry posts-entry-sm bg-light">
         <div class="container">
             <div class="row mb-4">
-                <div class="col-12 text-uppercase text-black">Plus d'articles</div>
+                <div class="col-12 text-uppercase text-black">More blogs</div>
             </div>
             <div class="row">
                 @foreach ($randomBlogs as $blog)
@@ -157,7 +157,7 @@
                             </span>
                             <h2><a href="{{ route('show', $blog->id) }}">{{ $blog->title }}</a></h2>
                             <p>{!! Str::limit($blog->description, 30) !!}</p>
-                            <p><a href="{{ route('show', $blog->id) }}" class="read-more">Continuez</a></p>
+                            <p><a href="{{ route('show', $blog->id) }}" class="read-more">Continue</a></p>
                         </div>
                     </div>
                 @endforeach
