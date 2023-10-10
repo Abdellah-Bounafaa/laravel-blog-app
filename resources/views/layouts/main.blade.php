@@ -171,7 +171,7 @@
                     </div> <!-- /.widget -->
                     <div class="widget">
                         <h3>Social</h3>
-                        <ul class="list-unstyled social">
+                        <ul class="list-unstyled social d-flex ">
                             <li> <a href="https://github.com/Abdellah-Bounafaa" class="p-2"><span
                                         class="fab fa-github"></span></a></li>
                             <li> <a href="https://www.linkedin.com/in/abdellah-bounafaa/" class="p-2"><span
@@ -185,10 +185,12 @@
                     <div class="widget">
                         <h3 class="mb-4">Links</h3>
                         <ul class="list-unstyled float-start links">
-                            <li><a href="{{ route('blogs') }}">Blogs</a></li>
+                            <li><a href="{{ route('blogs') }}">Home</a></li>
                             <li><a href="{{ route('category', 2) }}">Culture Blogs</a></li>
                             <li><a href="{{ route('category', 1) }}">Technology Blogs</a></li>
-                            <li><a href="#">Portfolio</a></li>
+                            <li><a href="{{ route('contact') }}">Contact Us</a></li>
+                            <li><a href="{{ route('about') }}">About Us</a></li>
+                            <li><a href="{{ route('privacy') }}">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>
