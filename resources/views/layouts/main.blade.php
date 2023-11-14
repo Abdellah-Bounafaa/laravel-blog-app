@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -44,7 +44,8 @@
                     <div class="site-navigation">
                         <div class="row g-0 align-items-center">
                             <div class="col-2">
-                                <a href="{{ route('blogs') }}" class="logo m-0 float-start">BNF</a>
+                                <a href="{{ route('blogs') }}"
+                                    class="logo m-0 float-start text-decoration-none">Nlivres</a>
                             </div>
                             <div class="col-8 text-center">
                                 <ul
@@ -91,6 +92,23 @@
                                     <li class="active"><a href="{{ route('blogs') }}">Home</a></li>
                                     <li><a href="{{ route('category', 1) }}">Technology</a></li>
                                     <li><a href="{{ route('category', 2) }}">Culture</a></li>
+                                    @auth
+                                        @if (auth()->user()->role == '1')
+                                            <li>
+                                                <a href="{{ route('create') }}">
+                                                    Create</a>
+                                            </li>
+                                        @endif
+                                    @endauth
+                                    @auth
+                                        @if (auth()->user()->role == '1')
+                                            <li>
+                                                <a href="{{ route('messages') }}">
+                                                    Messages</a>
+                                            </li>
+                                        @endif
+                                    @endauth
+
                                 </ul>
                             </div>
                             <div class="col-2 text-end">
@@ -102,14 +120,20 @@
                                 <ul
                                     class="ms-auto d-flex text-white list-unstyled gap-3 mt-3 search-form d-none d-lg-flex gap-3">
                                     <!-- Authentication Links -->
-                                    @auth
+                                    {{-- @auth
                                         @if (auth()->user()->role == '1')
-                                            <a class="nav-link"
-                                                style="outline: 1px solid white;border-radius:2px;padding:.5px 2px"
-                                                href="{{ route('create') }}">
-                                                Create</a>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <a class="nav-link"
+                                                    style="outline: 1px solid white;border-radius:2px;padding:.5px 2px"
+                                                    href="{{ route('create') }}">
+                                                    Create</a>
+                                                <a class="nav-link"
+                                                    style="outline: 1px solid white;border-radius:2px;padding:.5px 2px"
+                                                    href="{{ route('messages') }}">
+                                                    Messages</a>
+                                            </div>
                                         @endif
-                                    @endauth
+                                    @endauth --}}
                                     @guest
                                         @if (Route::has('login'))
                                             <li class="nav-item">

@@ -59,6 +59,9 @@
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Submit</button>
             </form>
+            <div class="mt-2 d-flex gap-2">
+                Already have an account?<a href="{{ route('login') }}">Login</a>
+            </div>
         </div>
 
     </div>

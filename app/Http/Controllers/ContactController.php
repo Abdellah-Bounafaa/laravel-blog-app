@@ -9,6 +9,12 @@ class ContactController extends Controller
 {
     public function index()
     {
+        $messages = Contact::all();
+        return view('contact.index')
+            ->with('messages', $messages);
+    }
+    public function create()
+    {
         return view('contact.contact');
     }
     public function send(Request $request)

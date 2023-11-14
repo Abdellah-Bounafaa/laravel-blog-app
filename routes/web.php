@@ -22,7 +22,8 @@ Route::prefix("/blogs")->group(function () {
     Route::get('/category/{id}', [BlogController::class, "category_blogs"])->name('category');
     Route::match(['get', 'post', "head"], '/search', [BlogController::class, 'search_blog'])->name('search');
 });
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/contact', [ContactController::class, 'create'])->name('contact');
+Route::get('/messages', [ContactController::class, 'index'])->name('messages');
 Route::post('/send', [ContactController::class, "send"])->name("send");
 Route::get('/privacy-policy', function () {
     return view('privacy.privacy');

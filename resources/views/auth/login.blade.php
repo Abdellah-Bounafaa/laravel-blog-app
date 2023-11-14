@@ -10,7 +10,6 @@
             /* This sets the container to full viewport height */
         }
     </style>
-
     <div class="center">
         <div class="col-md-4">
             <p class="fw-bold text-center fs-3">Login to your account</p>
@@ -41,12 +40,15 @@
                     {{ __('Login') }}
                 </button>
 
-                @if (Route::has('password.request'))
+                {{-- @if (Route::has('password.request'))
                     <a class="btn btn-link" href="{{ route('password.request') }}">
                         {{ __('Forgot Your Password?') }}
                     </a>
-                @endif
+                @endif --}}
             </form>
+            <div class="mt-2 d-flex gap-2">
+                Create an account?<a href="{{ route('register') }}">Register</a>
+            </div>
         </div>
     </div>
 @endsection

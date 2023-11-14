@@ -27,7 +27,7 @@
     </section>
     <!-- End retroy layout blog posts -->
     <!-- Start posts-entry -->
-    <section class="section posts-entry">
+    {{-- <section class="section posts-entry">
         <div class="container">
             <div class="row mb-4">
                 <div class="col-sm-6">
@@ -61,9 +61,15 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <section class="section posts-entry posts-entry-sm bg-light">
         <div class="container">
+            <div class="row mb-4">
+                <div class="col-sm-6">
+                    <h2 class="posts-entry-title">Technology</h2>
+                </div>
+                <div class="col-sm-6 text-sm-end"><a href="{{ route('category', 1) }}" class="read-more">All</a></div>
+            </div>
             <div class="row mb-4">
                 @foreach ($technologyBlogs as $blog)
                     <div class="col-md-6 col-lg-3">
@@ -82,7 +88,7 @@
             </div>
         </div>
     </section>
-    <section class="section posts-entry">
+    {{-- <section class="section posts-entry">
         <div class="container">
             <div class="row mb-4">
                 <div class="col-sm-6">
@@ -116,7 +122,7 @@
                     </div>
                 </div>
             </div>
-    </section>
+    </section> --}}
     {{-- <section class="section posts-entry">
         <div class="container">
             <div class="row mb-4">
@@ -154,11 +160,20 @@
             </div>
         </div>
     </section> --}}
+
     <section class="section">
         <div class="container">
+            <div class="row mb-4">
+
+                <div class="col-sm-6">
+                    <h2 class="posts-entry-title">Culture</h2>
+                </div>
+                <div class="col-sm-6 text-sm-end"><a href="{{ route('category', 2) }}" class="read-more">All</a>
+                </div>
+            </div>
             <div class="row">
                 @foreach ($cultureBlogs as $blog)
-                    <div class="col-lg-4 mb-4">
+                    <div class="col-md-6 col-lg-3">
                         <div class="post-entry-alt">
                             <a href="{{ route('show', $blog->id) }}" class="img-link">
                                 <img src="{{ asset('blogs/images/' . $blog->image1) }}" alt="Image"
