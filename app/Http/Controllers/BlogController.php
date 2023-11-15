@@ -14,13 +14,19 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::inRandomOrder()->limit(6)->get();
-        $techBlogs = Blog::inRandomOrder()->where('categorie_id', 1)->limit(2)->get();
-        $cultureBlog = Blog::inRandomOrder()->where('categorie_id', 2)->limit(2)->get();
+        $blogs = Blog::latest()->limit(6)->get();
+        // $techBlogs = Blog::inRandomOrder()->where('categorie_id', 1)->limit(2)->get();
+        // $cultureBlog = Blog::inRandomOrder()->where('categorie_id', 2)->limit(2)->get();
         $technologyBlogs = Blog::inRandomOrder()->where('categorie_id', 1)->limit(8)->get();
         $cultureBlogs = Blog::inRandomOrder()->where('categorie_id', 2)->limit(8)->get();
         return view('blogs.index')
-            ->with(['blogs' => $blogs, "techBlogs" => $techBlogs, "technologyBlogs" => $technologyBlogs, 'cultureBlog' => $cultureBlog, "cultureBlogs" => $cultureBlogs]);
+            ->with([
+                'blogs' => $blogs,
+                // "techBlogs" => $techBlogs,
+                "technologyBlogs" => $technologyBlogs,
+                // 'cultureBlog' => $cultureBlog,
+                "cultureBlogs" => $cultureBlogs
+            ]);
     }
     /**
      * Store a newly created resource in storage.
@@ -30,7 +36,7 @@ class BlogController extends Controller
         // dd($request->all());
         $request->validate(
             [
-                "title" => "required",
+                "title" => "required|unique:blogs,title",
                 'description' => "required",
                 'categorie_id' => "required",
                 'tags' => "required",
@@ -68,9 +74,11 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $title)
     {
-        $blog = Blog::find($id);
+        // $blog = Blog::where("title", $title)->first();
+        $blog = Blog::where("title", "LIKE", "%" . $title . "%")->first();
+        // dd($blog);
         $randomBlogs = Blog::inRandomOrder()->limit(4)->get();
         $blogs = Blog::latest()->limit(3)->get();
         return view('blogs.show')->with(['blog' => $blog, "randomBlogs" => $randomBlogs, "blogs" => $blogs]);
@@ -141,10 +149,10 @@ class BlogController extends Controller
         }
         return redirect()->route('blogs')->with("error", "successfuly deleted");
     }
-    public function category_blogs(string $id)
+    public function category_blogs(string $title)
     {
-        $category = Category::findOrFail($id);
-        $blogs = Blog::where('categorie_id', $id)->paginate(5);
+        $category = Category::where('title', $title)->first();
+        $blogs = Blog::where('categorie_id', $category->id)->paginate(5);
         return view('blogs.category')->with(['blogs' => $blogs, 'category' => $category]);
     }
     public function search_blog(Request $request)

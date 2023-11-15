@@ -1,4 +1,13 @@
 @extends('layouts.main')
+@section('title')
+    nlivres - {{ $blog->title }}
+@endsection
+@section('meta')
+    @php
+        $metaDescription = Str::limit(strip_tags($blog->description), 150);
+    @endphp
+    <meta name="description" content="{!! $metaDescription !!}">
+@endsection
 @section('content')
     <style>
         a {
@@ -35,7 +44,7 @@
                         <div class="row my-4">
 
                             <div class="mb-3"
-                                style="background-image: url('{{ asset('blogs/images/' . $blog->image1) }}');background-size: cover;background-repeat: no-repeat;background-position: center;width: 100%;height: 500px; border-radius: 10px;">
+                                style="background-image: url('{{ asset('blogs/images/' . $blog->image1) }}');background-size: cover;background-repeat: no-repeat;background-position: center center;width: 100%;height: 500px; border-radius: 10px;overflow:hidden">
                             </div>
                             @if ($blog->image2 !== null && $blog->image3 !== null)
                                 <div class="d-flex justify-content-center align-items-center gap-2">
@@ -86,7 +95,7 @@
                 <!-- END main-content -->
                 <div class="col-md-12 col-lg-4 sidebar">
                     <!-- END sidebar-box -->
-                    <div class="sidebar-box p-2">
+                    <div class="sidebar-box p-3 rounded-3">
                         <div class="bio text-center">
                             <img src="{{ url('me/DSC_0045.jpg') }}" alt="Image Placeholder" class="img-fluid mb-3">
                             <div class="bio-body">
@@ -97,23 +106,24 @@
                                         technologies. I enjoy creating innovative web applications and optimizing user
                                         experiences through seamless integration of design and functionality.</i></p>
                                 <p class="social">
-                                    <a href="https://github.com/Abdellah-Bounafaa" class="p-2"><span
+                                    <a href="https://github.com/Abdellah-Bounafaa" target="_blank" class="p-2"><span
                                             class="fab fa-github"></span></a>
-                                    <a href="https://www.linkedin.com/in/abdellah-bounafaa/" class="p-2"><span
-                                            class="fab fa-linkedin"></span></a>
-                                    <a href="#" class="p-2"><span class="fab fa-instagram"></span></a>
+                                    <a href="https://www.linkedin.com/in/abdellah-bounafaa/" target="_blank"
+                                        class="p-2"><span class="fab fa-linkedin"></span></a>
+                                    <a href="https://www.instagram.com/abdellah_bounafaa/" target="_blank"
+                                        class="p-2"><span class="fab fa-instagram"></span></a>
                                 </p>
                             </div>
                         </div>
                     </div>
                     <!-- END sidebar-box -->
-                    <div class="sidebar-box p-2">
+                    <div class="sidebar-box p-3 rounded-3">
                         <h3 class="heading">Popular Blogs</h3>
                         <div class="post-entry-sidebar">
                             <ul>
                                 @foreach ($blogs as $popularBlog)
                                     <li>
-                                        <a href="">
+                                        <a href="{{ route('show', $popularBlog->title) }}">
                                             <img src="{{ asset('blogs/images/' . $popularBlog->image1) }}"
                                                 alt="Image placeholder" class="me-4 rounded">
                                             <div class="text">
@@ -148,16 +158,16 @@
                 @foreach ($randomBlogs as $blog)
                     <div class="col-md-6 col-lg-3">
                         <div class="blog-entry">
-                            <a href="{{ route('show', $blog->id) }}" class="d-block">
+                            <a href="{{ route('show', $blog->title) }}" class="d-block">
                                 <img src="{{ asset('blogs/images/' . $blog->image1) }}" alt="Image"
                                     class="img-fluid rounded-1">
                             </a>
                             <span class="date">
                                 {{ \Carbon\Carbon::parse($blog->created_at)->format('M. jS, Y') }}
                             </span>
-                            <h2><a href="{{ route('show', $blog->id) }}">{{ $blog->title }}</a></h2>
+                            <h2><a href="{{ route('show', $blog->title) }}">{{ $blog->title }}</a></h2>
                             <p>{!! Str::limit($blog->description, 30) !!}</p>
-                            <p><a href="{{ route('show', $blog->id) }}" class="read-more">Continue</a></p>
+                            <p><a href="{{ route('show', $blog->title) }}" class="read-more">Continue</a></p>
                         </div>
                     </div>
                 @endforeach

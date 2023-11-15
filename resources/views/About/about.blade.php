@@ -1,20 +1,45 @@
 @extends('layouts.main')
 @section('content')
-    <div class="container p-5">
+    <!-- Main Content -->
+    <div class="container pt-5">
+        <div class="row">
+            <h1 class="text-center">About us</h1>
+            <div class="col-md-8 pt-3 offset-md-2">
+                <h2 class="mb-4">About Me</h2>
+                <p>I'm not just a programmer; I'm a storyteller of code, a seeker of knowledge, and a passionate advocate
+                    for the art and science of programming. My journey in the tech world has been a fascinating ride, filled
+                    with challenges, triumphs, and an unquenchable thirst for learning.</p>
 
-        <h2>About Us!</h2>
-        <h3 style="text-align: center;">Welcome To <span id="W_Name1">bnf</span></h3>
-        <p><span id="W_Name2">bnf</span> is a Professional <span id="W_Type1">Educational</span> Platform. Here we will
-            provide you only interesting content, which you will like very much. We're dedicated to providing you the best
-            of <span id="W_Type2">Educational</span>, with a focus on dependability and <span id="W_Spec">blogs</span>.
-            We're working to turn our passion for <span id="W_Type3">Educational</span> into a booming <a
-                href="https://www.blogearns.com/2021/05/free-about-us-page-generator.html" rel="do-follow"
-                style="color: inherit; text-decoration: none;">online website</a>. We hope you enjoy our <span
-                id="W_Type4">Educational</span> as much as we enjoy offering them to you.</p>
-        <p>I will keep posting more important posts on my Website for all of you. Please give your support and love.</p>
-        <p style="font-weight: bold; text-align: center;">Thanks For Visiting Our Site<br><br>
-            <span style="color: blue; font-size: 16px; font-weight: bold; text-align: center;">Have a nice day!</span>
-        </p>
+                <h2 class="mb-4">Why nlivres.com?</h2>
+                <p>nlivres.com is more than just a digital space; it's a manifestation of my love for programming and a
+                    desire to connect with a community of like-minded individuals. Here, I aim to create a haven where
+                    programming enthusiasts, professionals, and curious minds can find inspiration, guidance, and a sense of
+                    camaraderie.</p>
 
+                <h2 class="mb-4">What You'll Discover:</h2>
+                <ul>
+                    <li><strong>Insightful Programming Journeys:</strong> Join me as I share personal experiences, lessons
+                        learned, and the occasional "Aha!" moments in my coding adventures.</li>
+                    <li><strong>In-Depth Tutorials:</strong> Learn and grow with hands-on tutorials covering various
+                        programming languages, frameworks, and best practices.</li>
+                    <li><strong>Professional Perspectives:</strong> Navigate the dynamic landscape of the tech industry with
+                        articles offering insights into career development, industry trends, and the ever-evolving world of
+                        technology.</li>
+                </ul>
+
+                <!-- Add more content sections as needed -->
+
+                <h2 class="mb-4">Let's Connect:</h2>
+                <p>I believe in the power of community, and I want nlivres.com to be a space for interaction and
+                    collaboration.</p>
+                <p>Feel free to share your thoughts in the comments section. Let's build a community where knowledge flows
+                    freely.</p>
+
+                <h2 class="mb-4">Contact:</h2>
+                <p>Have a question or just want to say hello? Reach us at <strong><a
+                            href="mailto:support@nlivres.com">support@nlivres.com</a></strong>.Or visit <strong><a
+                            href="{{ route('contact') }}">Contact</a> </strong>page and send us a message</p>
+            </div>
+        </div>
     </div>
 @endsection

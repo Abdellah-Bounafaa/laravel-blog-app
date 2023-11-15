@@ -9,7 +9,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $messages = Contact::all();
+        $messages = Contact::latest()->get();
         return view('contact.index')
             ->with('messages', $messages);
     }
