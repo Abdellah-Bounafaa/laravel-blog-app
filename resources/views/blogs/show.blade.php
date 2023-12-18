@@ -44,7 +44,7 @@
                         <div class="row my-4">
 
                             <div class="mb-3"
-                                style="background-image: url('{{ asset('blogs/images/' . $blog->image1) }}');background-size: cover;background-repeat: no-repeat;background-position: center center;width: 100%;height: 500px; border-radius: 10px;overflow:hidden">
+                                style="background-image: url('{{ asset('blogs/images/' . $blog->image1) }}');background-size: cover;background-repeat: no-repeat;background-position: center center;width: 95%;margin:auto;height: 500px; border-radius: 10px;overflow:hidden">
                             </div>
                             @if ($blog->image2 !== null && $blog->image3 !== null)
                                 <div class="d-flex justify-content-center align-items-center gap-2">

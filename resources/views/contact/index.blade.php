@@ -1,5 +1,11 @@
 @extends('layouts.main')
-
+@section('title')
+    nlivres - Contact
+@endsection
+@section('meta')
+    <meta name="description"
+        content="Unlock the world of programming and professional insights on my website. Dive into a realm of code, career tips, and tech knowledge.">
+@endsection
 @section('content')
     <section class="section bg-light">
         <div class="container">

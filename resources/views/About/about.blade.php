@@ -1,4 +1,11 @@
 @extends('layouts.main')
+@section('title')
+    nlivres - About
+@endsection
+@section('meta')
+    <meta name="description"
+        content="Unlock the world of programming and professional insights on my website. Dive into a realm of code, career tips, and tech knowledge.">
+@endsection
 @section('content')
     <!-- Main Content -->
     <div class="container pt-5">

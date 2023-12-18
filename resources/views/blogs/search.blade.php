@@ -4,9 +4,8 @@
 @endsection
 @section('meta')
     <meta name="description"
-        content="Discover my personal blog website, a captivating digital haven where I share my thoughts,
-                            experiences, and passions with the world. Through engaging storytelling and thoughtful
-                            reflections, I invite readers to embark on a journey of self-discovery and inspiration.">
+              content="Unlock the world of programming and professional insights on my website. Dive into a realm of code, career tips, and tech knowledge.">
+
 @endsection
 @section('content')
     <style>

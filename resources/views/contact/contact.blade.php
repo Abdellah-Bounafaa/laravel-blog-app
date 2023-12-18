@@ -8,8 +8,8 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="exampleInputEmail1">Name</label>
-                        <input type="text" class="form-control" name="name"
-                            value="{{ auth()->user()->name ? auth()->user()->name : '' }}" placeholder="First name">
+                        <input type="text" class="form-control" name="name" value="{{ auth()->user()->name ?? '' }}"
+                            placeholder="First name">
 
                     </div>
                     <div class="col-md-6">
@@ -17,8 +17,8 @@
                             <label for="exampleInputEmail1">Email address</label>
 
                             <input type="email" class="form-control" name="email" id="exampleInputEmail1"
-                                value="{{ auth()->user()->email ? auth()->user()->email : '' }}"
-                                aria-describedby="emailHelp" placeholder="Enter email">
+                                value="{{ auth()->user()->email ?? '' }}" aria-describedby="emailHelp"
+                                placeholder="Enter email">
                         </div>
                     </div>
                 </div>
