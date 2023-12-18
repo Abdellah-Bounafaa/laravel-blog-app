@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+    protected $timestamp = false;
     protected $fillable = [
         "title"
     ];
+
     public function blogs()
     {
         return $this->hasMany(Blog::class, "categorie_id", "id");

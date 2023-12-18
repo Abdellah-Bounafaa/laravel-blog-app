@@ -1,4 +1,12 @@
 @extends('layouts.main')
+@section('title')
+    nlivres - Home
+@endsection
+@section('meta')
+    <meta name="description"
+               content="Unlock the world of programming and professional insights on my website. Dive into a realm of code, career tips, and tech knowledge.">
+
+@endsection
 @section('content')
     <style>
         a {
@@ -10,7 +18,7 @@
             <div class="row align-items-stretch retro-layout">
                 @foreach ($blogs as $blog)
                     <div class="col-md-4">
-                        <a href="{{ route('show', $blog->id) }}" class="h-entry mb-30 v-height gradient">
+                        <a href="{{ route('show', $blog->title) }}" class="h-entry mb-30 v-height gradient">
                             <div class="featured-img" style="background-image: url('blogs/images/{{ $blog->image1 }}');">
                             </div>
                             <div class="text">
@@ -27,7 +35,7 @@
     </section>
     <!-- End retroy layout blog posts -->
     <!-- Start posts-entry -->
-    <section class="section posts-entry">
+    {{-- <section class="section posts-entry">
         <div class="container">
             <div class="row mb-4">
                 <div class="col-sm-6">
@@ -61,28 +69,35 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <section class="section posts-entry posts-entry-sm bg-light">
         <div class="container">
+            <div class="row mb-4">
+                <div class="col-sm-6">
+                    <h2 class="posts-entry-title">Technology</h2>
+                </div>
+                <div class="col-sm-6 text-sm-end"><a href="{{ route('category', 'Technology') }}" class="read-more">All</a>
+                </div>
+            </div>
             <div class="row mb-4">
                 @foreach ($technologyBlogs as $blog)
                     <div class="col-md-6 col-lg-3">
                         <div class="blog-entry">
-                            <a href="{{ route('show', $blog->id) }}" class="img-link">
+                            <a href="{{ route('show', $blog->title) }}" class="img-link">
                                 <img src="{{ asset('blogs/images/' . $blog->image1) }}" alt="Image" class="img-fluid">
                             </a>
                             <span class="date">
                                 {{ \Carbon\Carbon::parse($blog->created_at)->format('M. jS, Y') }}</span>
-                            <h2><a href="{{ route('show', $blog->id) }}">{{ $blog->title }}</a></h2>
+                            <h2><a href="{{ route('show', $blog->title) }}">{{ $blog->title }}</a></h2>
                             <p>{!! Str::limit($blog->description, 60) !!}</p>
-                            <p><a href="{{ route('show', $blog->id) }}" class="read-more">Continue</a></p>
+                            <p><a href="{{ route('show', $blog->title) }}" class="read-more">Continue</a></p>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
     </section>
-    <section class="section posts-entry">
+    {{-- <section class="section posts-entry">
         <div class="container">
             <div class="row mb-4">
                 <div class="col-sm-6">
@@ -116,7 +131,7 @@
                     </div>
                 </div>
             </div>
-    </section>
+    </section> --}}
     {{-- <section class="section posts-entry">
         <div class="container">
             <div class="row mb-4">
@@ -154,25 +169,34 @@
             </div>
         </div>
     </section> --}}
+
     <section class="section">
         <div class="container">
+            <div class="row mb-4">
+
+                <div class="col-sm-6">
+                    <h2 class="posts-entry-title">Culture</h2>
+                </div>
+                <div class="col-sm-6 text-sm-end"><a href="{{ route('category', 'Culture') }}" class="read-more">All</a>
+                </div>
+            </div>
             <div class="row">
                 @foreach ($cultureBlogs as $blog)
-                    <div class="col-lg-4 mb-4">
+                    <div class="col-md-6 col-lg-3">
                         <div class="post-entry-alt">
-                            <a href="{{ route('show', $blog->id) }}" class="img-link">
+                            <a href="{{ route('show', $blog->title) }}" class="img-link">
                                 <img src="{{ asset('blogs/images/' . $blog->image1) }}" alt="Image"
                                     class="img-fluid"></a>
                             <div class="excerpt">
 
 
-                                <h2><a href="{{ route('show', $blog->id) }}">{{ $blog->title }}</a></h2>
+                                <h2><a href="{{ route('show', $blog->title) }}">{{ $blog->title }}</a></h2>
                                 <div class="post-meta align-items-center text-left clearfix">
                                     <span class="date">
                                         {{ \Carbon\Carbon::parse($blog->created_at)->format('M. jS, Y') }}</span>
                                 </div>
                                 <p>{!! Str::limit($blog->description, 60) !!}</p>
-                                <p><a href="{{ route('show', $blog->id) }}" class="read-more">Continue</a></p>
+                                <p><a href="{{ route('show', $blog->title) }}" class="read-more">Continue</a></p>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,12 @@
 @extends('layouts.main')
+@section('title')
+    nlivres - Search
+@endsection
+@section('meta')
+    <meta name="description"
+              content="Unlock the world of programming and professional insights on my website. Dive into a realm of code, career tips, and tech knowledge.">
+
+@endsection
 @section('content')
     <style>
         a {
@@ -14,14 +22,14 @@
                     @foreach ($blogs as $blog)
                         <div class="col-md-6 col-lg-3 pt-5">
                             <div class="blog-entry">
-                                <a href="{{ route('show', $blog->id) }}" class="img-link">
+                                <a href="{{ route('show', $blog->title) }}" class="img-link">
                                     <img src="{{ asset('blogs/images/' . $blog->image1) }}" alt="Image" class="img-fluid">
                                 </a>
                                 <span class="date">
                                     {{ \Carbon\Carbon::parse($blog->created_at)->format('M. jS, Y') }}</span>
-                                <h2><a href="{{ route('show', $blog->id) }}">{{ $blog->title }}</a></h2>
+                                <h2><a href="{{ route('show', $blog->title) }}">{{ $blog->title }}</a></h2>
                                 <p>{!! Str::limit($blog->description, 60) !!}</p>
-                                <p><a href="{{ route('show', $blog->id) }}" class="read-more">Continue Reading</a></p>
+                                <p><a href="{{ route('show', $blog->title) }}" class="read-more">Continue Reading</a></p>
                             </div>
                         </div>
                     @endforeach

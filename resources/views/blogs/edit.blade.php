@@ -1,4 +1,12 @@
 @extends('layouts.main')
+@section('title')
+    nlivres - Create/Edit Blog
+@endsection
+@section('meta')
+    <meta name="description"
+             content="Unlock the world of programming and professional insights on my website. Dive into a realm of code, career tips, and tech knowledge.">
+
+@endsection
 @section('content')
     @php
         $action = '';
@@ -8,7 +16,6 @@
             $action = route('store');
         }
     @endphp
-
     <section class="section">
         <div class="container">
             <h3 class="text-center ">Create or update your Blog</h3>
